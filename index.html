@@ -739,7 +739,7 @@
 <!-- Slimscroll -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
-<!-- <script src="plugins/chartjs/Chart.min.js"></script> -->
+<script src="plugins/chartjs/Chart.min.js"></script>
 <!-- FastClick -->
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -748,6 +748,14 @@
 <!-- <script src="dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<!-- FLOT CHARTS -->
+<script src="plugins/flot/jquery.flot.min.js"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="plugins/flot/jquery.flot.resize.min.js"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="plugins/flot/jquery.flot.pie.min.js"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script src="plugins/flot/jquery.flot.categories.min.js"></script>
 
 <!-- AngularJs -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
@@ -799,27 +807,27 @@ var app = angular.module('MyApp', ['ngRoute', 'oc.lazyLoad']);
             // route for the contact page
             .when('/charts/chartjs', {
                 templateUrl : 'route/charts/chartjs.html',
-                controller  : 'chartjsController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/chartjs/Chart.min.js']
-                      }]);
-                  }]
-                }
+                controller  : 'chartjsController'
+                // resolve: {
+                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                //       return $ocLazyLoad.load([{
+                //           name: 'myApp',
+                //           files: ['plugins/chartjs/Chart.min.js']
+                //       }]);
+                //   }]
+                // }
             })
             .when('/charts/flot', {
                 templateUrl : 'route/charts/flot.html',
-                controller  : 'flotController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/flot/jquery.flot.min.js', 'plugins/flot/jquery.flot.resize.min.js', 'plugins/flot/jquery.flot.pie.min.js', 'plugins/flot/jquery.flot.categories.min.js']
-                      }]);
-                  }]
-                }
+                controller  : 'flotController'
+                // resolve: {
+                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                //       return $ocLazyLoad.load([{
+                //           name: 'myApp',
+                //           files: ['plugins/flot/jquery.flot.min.js', 'plugins/flot/jquery.flot.resize.min.js', 'plugins/flot/jquery.flot.pie.min.js', 'plugins/flot/jquery.flot.categories.min.js']
+                //       }]);
+                //   }]
+                // }
             })
             .when('/charts/inline', {
                 templateUrl : 'route/charts/inline.html',
