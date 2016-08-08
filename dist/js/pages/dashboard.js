@@ -5,6 +5,7 @@
  *      This is a demo file used only for the main dashboard (index.html)
  **/
 
+// function activeDashboard() {}
 $(function () {
 
   "use strict";
@@ -208,3 +209,4 @@ $(function () {
   });
 
 });
+// }
