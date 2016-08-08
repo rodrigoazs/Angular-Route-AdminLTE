@@ -36,173 +36,6 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
-  <script src="https://raw.githubusercontent.com/ocombe/ocLazyLoad/master/dist/ocLazyLoad.min.js"></script>
-  <script>
-
-  var app = angular.module('MyApp', ['ngRoute', 'oc.lazyLoad']);
-
-    // configure our routes
-    app.config(function($routeProvider) {
-        $routeProvider
-
-            // route for the home page
-            .when('/', {
-                templateUrl : 'route/dashboard.html',
-                controller  : 'mainController'
-                // resolve: {
-                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                //       return $ocLazyLoad.load([{
-                //           name: 'myApp',
-                //           files: ['dist/js/pages/dashboard.js']
-                //       }]);
-                //   }]
-                // }
-            })
-            .when('/dashboard2', {
-                templateUrl : 'route/dashboard2.html',
-                controller  : 'dashboard2Controller'
-                // resolve: {
-                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                //       return $ocLazyLoad.load([{
-                //           name: 'myApp',
-                //           files: ['dist/js/pages/dashboard2.js']
-                //       }]);
-                //   }]
-                // }
-            })
-
-            .when('/teste', {
-                templateUrl : 'route/teste.html',
-                controller  : 'mainController'
-            })
-
-            // route for the about page
-            .when('/widgets', {
-                templateUrl : 'route/widgets.html',
-                controller  : 'aboutController'
-            })
-
-            // route for the contact page
-            .when('/charts/chartjs', {
-                templateUrl : 'route/charts/chartjs.html',
-                controller  : 'chartjsController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/chartjs/Chart.min.js']
-                      }]);
-                  }]
-                }
-            })
-            .when('/charts/flot', {
-                templateUrl : 'route/charts/flot.html',
-                controller  : 'flotController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/flot/jquery.flot.min.js', 'plugins/flot/jquery.flot.resize.min.js', 'plugins/flot/jquery.flot.pie.min.js', 'plugins/flot/jquery.flot.categories.min.js']
-                      }]);
-                  }]
-                }
-            })
-            .when('/charts/inline', {
-                templateUrl : 'route/charts/inline.html',
-                controller  : 'inlineController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/knob/jquery.knob.js', 'plugins/sparkline/jquery.sparkline.min.js']
-                      }]);
-                  }]
-                }
-            })
-            .when('/charts/morris', {
-                templateUrl : 'route/charts/morris.html',
-                controller  : 'morrisController'
-            })
-
-            .when('/UI/buttons', {
-                templateUrl : 'route/UI/buttons.html',
-                controller  : 'buttonsController'
-            })
-            .when('/UI/general', {
-                templateUrl : 'route/UI/general.html',
-                controller  : 'generalController'
-            })
-            .when('/UI/icons', {
-                templateUrl : 'route/UI/icons.html',
-                controller  : 'iconsController'
-            })
-            .when('/UI/modals', {
-                templateUrl : 'route/UI/modals.html',
-                controller  : 'modalsController'
-            })
-            .when('/UI/sliders', {
-                templateUrl : 'route/UI/sliders.html',
-                controller  : 'slidersController',
-                resolve: {
-                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                      return $ocLazyLoad.load([{
-                          name: 'myApp',
-                          files: ['plugins/ionslider/ion.rangeSlider.min.js', 'plugins/bootstrap-slider/bootstrap-slider.js']
-                      }]);
-                  }]
-                }
-            })
-            .when('/UI/timeline', {
-                templateUrl : 'route/UI/timeline.html',
-                controller  : 'timelineController'
-            })
-            .when('/forms/advanced', {
-                templateUrl : 'route/forms/advanced.html',
-                controller  : 'advancedController'
-                // ,
-                // resolve: {
-                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
-                //       return $ocLazyLoad.load([{
-                //           name: 'myApp',
-                //           files: ['plugins/select2/select2.full.min.js',
-                //
-                //           'plugins/input-mask/jquery.inputmask.date.extensions.js',
-                //           'plugins/input-mask/jquery.inputmask.extensions.js',
-                //           'plugins/input-mask/jquery.inputmask.js',
-                //           'plugins/colorpicker/bootstrap-colorpicker.min.js',
-                //           'plugins/iCheck/icheck.min.js']
-                //       }]);
-                //   }]
-                // }
-            })
-            .when('/forms/editors', {
-                templateUrl : 'route/forms/editors.html',
-                controller  : 'editorsController'
-            })
-            .when('/forms/general', {
-                templateUrl : 'route/forms/general.html',
-                controller  : 'generalController'
-            });
-    });
-  </script>
-  <script src="controllers/main.js"></script>
-  <script src="controllers/dashboard2.js"></script>
-  <script src="controllers/charts/chartjs.js"></script>
-  <script src="controllers/charts/morris.js"></script>
-  <script src="controllers/charts/flot.js"></script>
-  <script src="controllers/charts/inline.js"></script>
-  <script src="controllers/UI/buttons.js"></script>
-  <script src="controllers/UI/general.js"></script>
-  <script src="controllers/UI/icons.js"></script>
-  <script src="controllers/UI/modals.js"></script>
-  <script src="controllers/UI/sliders.js"></script>
-  <script src="controllers/UI/timeline.js"></script>
-  <script src="controllers/forms/advanced.js"></script>
-  <script src="controllers/forms/editors.js"></script>
-  <script src="controllers/forms/general.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -888,7 +721,7 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="plugins/morris/morris.min.js"></script>
+<script src="plugins/morris/morris.js"></script>
 <!-- Sparkline -->
 <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -905,6 +738,8 @@
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<!-- <script src="plugins/chartjs/Chart.min.js"></script> -->
 <!-- FastClick -->
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -913,5 +748,170 @@
 <!-- <script src="dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+<!-- AngularJs -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+<script src="https://raw.githubusercontent.com/ocombe/ocLazyLoad/master/dist/ocLazyLoad.min.js"></script>
+<script>
+
+var app = angular.module('MyApp', ['ngRoute', 'oc.lazyLoad']);
+
+  // configure our routes
+  app.config(function($routeProvider) {
+      $routeProvider
+
+          // route for the home page
+          .when('/', {
+              templateUrl : 'route/dashboard.html',
+              controller  : 'mainController'
+              // resolve: {
+              //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+              //       return $ocLazyLoad.load([{
+              //           name: 'myApp',
+              //           files: ['dist/js/pages/dashboard.js']
+              //       }]);
+              //   }]
+              // }
+          })
+          .when('/dashboard2', {
+              templateUrl : 'route/dashboard2.html',
+              controller  : 'dashboard2Controller'
+              // resolve: {
+              //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+              //       return $ocLazyLoad.load([{
+              //           name: 'myApp',
+              //           files: ['plugins/chartjs/Chart.min.js']
+              //       }]);
+              //   }]
+              // }
+          })
+
+            .when('/teste', {
+                templateUrl : 'route/teste.html',
+                controller  : 'mainController'
+            })
+            // route for the about page
+            .when('/widgets', {
+                templateUrl : 'route/widgets.html',
+                controller  : 'widgetsController'
+            })
+            // route for the contact page
+            .when('/charts/chartjs', {
+                templateUrl : 'route/charts/chartjs.html',
+                controller  : 'chartjsController',
+                resolve: {
+                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                      return $ocLazyLoad.load([{
+                          name: 'myApp',
+                          files: ['plugins/chartjs/Chart.min.js']
+                      }]);
+                  }]
+                }
+            })
+            .when('/charts/flot', {
+                templateUrl : 'route/charts/flot.html',
+                controller  : 'flotController',
+                resolve: {
+                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                      return $ocLazyLoad.load([{
+                          name: 'myApp',
+                          files: ['plugins/flot/jquery.flot.min.js', 'plugins/flot/jquery.flot.resize.min.js', 'plugins/flot/jquery.flot.pie.min.js', 'plugins/flot/jquery.flot.categories.min.js']
+                      }]);
+                  }]
+                }
+            })
+            .when('/charts/inline', {
+                templateUrl : 'route/charts/inline.html',
+                controller  : 'inlineController',
+                resolve: {
+                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                      return $ocLazyLoad.load([{
+                          name: 'myApp',
+                          files: ['plugins/knob/jquery.knob.js', 'plugins/sparkline/jquery.sparkline.min.js']
+                      }]);
+                  }]
+                }
+            })
+            .when('/charts/morris', {
+                templateUrl : 'route/charts/morris.html',
+                controller  : 'morrisController'
+            })
+            .when('/UI/buttons', {
+                templateUrl : 'route/UI/buttons.html',
+                controller  : 'buttonsController'
+            })
+            .when('/UI/general', {
+                templateUrl : 'route/UI/general.html',
+                controller  : 'generalController'
+            })
+            .when('/UI/icons', {
+                templateUrl : 'route/UI/icons.html',
+                controller  : 'iconsController'
+            })
+            .when('/UI/modals', {
+                templateUrl : 'route/UI/modals.html',
+                controller  : 'modalsController'
+            })
+            .when('/UI/sliders', {
+                templateUrl : 'route/UI/sliders.html',
+                controller  : 'slidersController',
+                resolve: {
+                  lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                      return $ocLazyLoad.load([{
+                          name: 'myApp',
+                          files: ['plugins/ionslider/ion.rangeSlider.min.js', 'plugins/bootstrap-slider/bootstrap-slider.js']
+                      }]);
+                  }]
+                }
+            })
+            .when('/UI/timeline', {
+                templateUrl : 'route/UI/timeline.html',
+                controller  : 'timelineController'
+            })
+            .when('/forms/advanced', {
+                templateUrl : 'route/forms/advanced.html',
+                controller  : 'advancedController'
+                // ,
+                // resolve: {
+                //   lazy: ['$ocLazyLoad', function($ocLazyLoad) {
+                //       return $ocLazyLoad.load([{
+                //           name: 'myApp',
+                //           files: ['plugins/select2/select2.full.min.js',
+                //
+                //           'plugins/input-mask/jquery.inputmask.date.extensions.js',
+                //           'plugins/input-mask/jquery.inputmask.extensions.js',
+                //           'plugins/input-mask/jquery.inputmask.js',
+                //           'plugins/colorpicker/bootstrap-colorpicker.min.js',
+                //           'plugins/iCheck/icheck.min.js']
+                //       }]);
+                //   }]
+                // }
+            })
+            .when('/forms/editors', {
+                templateUrl : 'route/forms/editors.html',
+                controller  : 'editorsController'
+            })
+            .when('/forms/general', {
+                templateUrl : 'route/forms/general.html',
+                controller  : 'generalController'
+            });
+  });
+</script>
+<script src="controllers/main.js"></script>
+<script src="controllers/dashboard2.js"></script>
+<script src="controllers/charts/chartjs.js"></script>
+<script src="controllers/charts/morris.js"></script>
+<script src="controllers/charts/flot.js"></script>
+<script src="controllers/charts/inline.js"></script>
+<script src="controllers/UI/buttons.js"></script>
+<script src="controllers/UI/general.js"></script>
+<script src="controllers/UI/icons.js"></script>
+<script src="controllers/UI/modals.js"></script>
+<script src="controllers/UI/sliders.js"></script>
+<script src="controllers/UI/timeline.js"></script>
+<script src="controllers/forms/advanced.js"></script>
+<script src="controllers/forms/editors.js"></script>
+<script src="controllers/forms/general.js"></script>
 </body>
 </html>
